@@ -1,0 +1,140 @@
+{
+  "info": {
+    "name": "JanPehchaan API Collection",
+    "description": "API collection for JanPehchaan backend prototype (Pankaj Kumar)",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "1. Health & Info",
+      "item": [
+        {
+          "name": "Health Check",
+          "request": {
+            "method": "GET",
+            "url": "http://localhost:5000/api/health"
+          }
+        },
+        {
+          "name": "Root Info",
+          "request": {
+            "method": "GET",
+            "url": "http://localhost:5000/"
+          }
+        }
+      ]
+    },
+    {
+      "name": "2. Families & Members",
+      "item": [
+        {
+          "name": "Get All Families",
+          "request": {
+            "method": "GET",
+            "url": "http://localhost:5000/api/families"
+          }
+        },
+        {
+          "name": "Get Family by ID (Ramesh Sharma)",
+          "request": {
+            "method": "GET",
+            "url": "http://localhost:5000/api/families/fam_demo_101"
+          }
+        },
+        {
+          "name": "Create New Family",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"family_head_name\": \"Manoj Kumar Verma\",\n  \"ration_card_category\": \"BPL\",\n  \"annual_household_income\": 85000,\n  \"address\": \"Street 4, Sector 12\",\n  \"district\": \"Lucknow\",\n  \"state\": \"Uttar Pradesh\",\n  \"pincode\": \"226010\"\n}"
+            },
+            "url": "http://localhost:5000/api/families"
+          }
+        },
+        {
+          "name": "Add Member to Family",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"full_name\": \"Aman Verma\",\n  \"relationship_to_head\": \"Son\",\n  \"age\": 18,\n  \"gender\": \"Male\",\n  \"occupation\": \"Student\",\n  \"student_status\": true,\n  \"disability_status\": false\n}"
+            },
+            "url": "http://localhost:5000/api/families/fam_demo_101/members"
+          }
+        }
+      ]
+    },
+    {
+      "name": "3. Record Verification & Duplicates",
+      "item": [
+        {
+          "name": "Check Discrepancy Profile (Family 102)",
+          "request": {
+            "method": "POST",
+            "url": "http://localhost:5000/api/verification/check/fam_demo_102"
+          }
+        },
+        {
+          "name": "Check Duplicate Candidate (Family 103)",
+          "request": {
+            "method": "POST",
+            "url": "http://localhost:5000/api/verification/check/fam_demo_103"
+          }
+        }
+      ]
+    },
+    {
+      "name": "4. Welfare Schemes & Eligibility",
+      "item": [
+        {
+          "name": "Get All Schemes Catalog",
+          "request": {
+            "method": "GET",
+            "url": "http://localhost:5000/api/schemes"
+          }
+        },
+        {
+          "name": "Evaluate Eligibility (Family 101)",
+          "request": {
+            "method": "POST",
+            "url": "http://localhost:5000/api/schemes/evaluate/fam_demo_101"
+          }
+        }
+      ]
+    },
+    {
+      "name": "5. Frontline Review Queue",
+      "item": [
+        {
+          "name": "Get Pending Reviews",
+          "request": {
+            "method": "GET",
+            "url": "http://localhost:5000/api/reviews?status=pending"
+          }
+        },
+        {
+          "name": "Resolve Review Flag",
+          "request": {
+            "method": "PATCH",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"status\": \"resolved\",\n  \"reviewer_notes\": \"Verified physically at Nagar Nigam office: Valid individual record.\"\n}"
+            },
+            "url": "http://localhost:5000/api/reviews/flag_demo_1"
+          }
+        },
+        {
+          "name": "Get Audit Change Logs",
+          "request": {
+            "method": "GET",
+            "url": "http://localhost:5000/api/reviews/logs"
+          }
+        }
+      ]
+    }
+  ]
+}

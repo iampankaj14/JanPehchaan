@@ -1,0 +1,32 @@
+# Dependencies
+node_modules/
+*/node_modules/
+
+# Production builds
+dist/
+*/dist/
+build/
+*/build/
+
+# Environment files & secrets
+.env
+.env.*
+!.env.example
+*.env
+
+# Temporary / scratch directories
+inspect_zips/
+temp_janarogya/
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Editor & OS files
+.vscode/
+.idea/
+.claude/
+.DS_Store
+Thumbs.db
