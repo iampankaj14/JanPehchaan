@@ -4,7 +4,7 @@
 JanPehchaan is a unified family-record and welfare-entitlement platform designed to bring citizen and family records together, prevent duplicate records, and make welfare scheme eligibility transparent and accessible.
 
 ---
-
+# LIVE LINK: https://snappy-tundra-dhxozrs.tmp.now/
 ## 🌟 Key Features
 
 - **Unified Family Record & Digital ID**: Digital identity management and family tree mapping.
@@ -47,8 +47,6 @@ cd client
 npm install
 npm run dev
 ```
-
-Open [http://localhost:5173](http://localhost:5173) in your browser.
 
 ---
 
